@@ -1,0 +1,18 @@
+export const series = [
+  "Scarlet & Violet",
+  "Sword & Shield",
+  "Sun & Moon",
+  "XY",
+  "Black & White",
+  "HeartGold & SoulSilver",
+  "Platinum",
+  "Diamond & Pearl",
+  "EX",
+  "NP",
+  "Base",
+  "E-Card",
+  "POP",
+  "Neo",
+  "Gym",
+  "Other",
+];

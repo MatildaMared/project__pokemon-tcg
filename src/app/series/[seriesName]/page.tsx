@@ -1,7 +1,7 @@
 import { config } from "@/utils/config";
 import { PagedResponse } from "@/types/PagedResponse";
 import { PokemonSet } from "@/types/PokemonSet";
-import Image from "next/image";
+import SetList from "@/components/SetList";
 
 async function getSetsInSeries(seriesName: string) {
   const res = await fetch(
@@ -33,19 +33,7 @@ export default async function SeriesPage({
   return (
     <>
       <h1>{seriesName}</h1>
-      <ul>
-        {data.map((set) => (
-          <li key={set.id}>
-            <h2>{set.name}</h2>
-            <Image
-              src={set.images.logo}
-              alt={set.name + " logo"}
-              width={"100"}
-              height={"100"}
-            />
-          </li>
-        ))}
-      </ul>
+      <SetList sets={data} />
     </>
   );
 }

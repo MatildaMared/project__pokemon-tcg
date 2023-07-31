@@ -8,11 +8,11 @@ interface SetListProps {
 }
 
 function SetList({ sets }: SetListProps) {
-  console.log(sets);
   return (
     <List>
       {sets.map((set) => (
         <Item key={set.id}>
+          <Heading>{set.name}</Heading>
           <ImageWrapper>
             <Image
               fill={true}
@@ -29,17 +29,23 @@ function SetList({ sets }: SetListProps) {
 }
 
 const List = styled.ul`
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  align-items: center;
-  list-style: none;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(175px, 1fr));
+  list-style-type: none;
   border: 1px solid hotpink;
+  gap: 1rem;
 `;
 
 const Item = styled.li`
   border: 1px solid peachpuff;
   padding: 1rem;
+`;
+
+const Heading = styled.h3`
+  font-size: 0.75rem;
+  font-weight: 300;
+  text-align: center;
+  text-transform: uppercase;
 `;
 
 const ImageWrapper = styled.div`

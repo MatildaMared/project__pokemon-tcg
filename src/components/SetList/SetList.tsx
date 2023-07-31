@@ -32,12 +32,13 @@ const List = styled.ul`
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(175px, 1fr));
   list-style-type: none;
-  border: 1px solid hotpink;
   gap: 1rem;
+  padding: 0;
 `;
 
 const Item = styled.li`
-  border: 1px solid peachpuff;
+  background-color: peachpuff;
+  border-radius: 1rem;
   padding: 1rem;
 `;
 

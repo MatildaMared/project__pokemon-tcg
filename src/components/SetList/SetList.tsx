@@ -37,7 +37,7 @@ const List = styled.ul`
 `;
 
 const Item = styled.li`
-  background-color: peachpuff;
+  background-color: ${({ theme }) => theme.colors?.background};
   border-radius: 1rem;
   padding: 1rem;
 `;

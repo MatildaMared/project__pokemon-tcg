@@ -2,8 +2,13 @@
 
 import React, { useState } from "react";
 import { useServerInsertedHTML } from "next/navigation";
-import { ServerStyleSheet, StyleSheetManager } from "styled-components";
-import { StylesReset } from "@/styles/StylesReset";
+import {
+  ServerStyleSheet,
+  StyleSheetManager,
+  ThemeProvider,
+} from "styled-components";
+import { StylesReset } from "@/styles/stylesReset";
+import { darkTheme } from "@/styles/themes/dark";
 
 export default function StyledComponentsRegistry({
   children,
@@ -22,10 +27,10 @@ export default function StyledComponentsRegistry({
 
   return (
     <StyleSheetManager sheet={styledComponentsStyleSheet.instance}>
-      <>
+      <ThemeProvider theme={darkTheme}>
         <StylesReset />
         {children}
-      </>
+      </ThemeProvider>
     </StyleSheetManager>
   );
 }

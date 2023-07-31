@@ -8,7 +8,8 @@ import {
   ThemeProvider,
 } from "styled-components";
 import { StylesReset } from "@/styles/stylesReset";
-import { darkTheme } from "@/styles/themes/dark";
+import { GlobalStyles } from "@/styles/globalStyles";
+import { lightTheme } from "@/styles/themes/light";
 
 export default function StyledComponentsRegistry({
   children,
@@ -27,8 +28,9 @@ export default function StyledComponentsRegistry({
 
   return (
     <StyleSheetManager sheet={styledComponentsStyleSheet.instance}>
-      <ThemeProvider theme={darkTheme}>
+      <ThemeProvider theme={lightTheme}>
         <StylesReset />
+        <GlobalStyles />
         {children}
       </ThemeProvider>
     </StyleSheetManager>

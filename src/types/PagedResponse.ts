@@ -1,5 +1,5 @@
 export interface PagedResponse<T> {
-  data: T[];
+  data: T;
   page: number;
   pageSize: number;
   count: number;

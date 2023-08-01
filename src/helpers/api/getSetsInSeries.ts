@@ -19,7 +19,7 @@ async function getSetsInSeries(seriesName: string) {
   }
 
   const data = await res.json();
-  return data as PagedResponse<PokemonSet>;
+  return data as PagedResponse<PokemonSet[]>;
 }
 
 export default getSetsInSeries;

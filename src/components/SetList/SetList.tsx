@@ -8,6 +8,7 @@ interface SetListProps {
 }
 
 export default function SetList({ sets }: SetListProps) {
+  console.log(sets);
   return (
     <ul className="grid grid-cols-[repeat(auto-fill,minmax(175px,1fr))] gap-4">
       {sets.map((set) => (

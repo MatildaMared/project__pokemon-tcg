@@ -4,13 +4,13 @@ import getSetsInSeries from "@/helpers/api/getSetsInSeries";
 export default async function SeriesPage({
   params,
 }: {
-  params: { seriesName: string };
+  params: { series: string };
 }) {
-  const seriesName = decodeURIComponent(params.seriesName);
-  const { data } = await getSetsInSeries(seriesName);
+  const series = decodeURIComponent(params.series);
+  const { data } = await getSetsInSeries(series);
   return (
     <>
-      <h1>{seriesName}</h1>
+      <h1>{series}</h1>
       <SetList sets={data} />
     </>
   );

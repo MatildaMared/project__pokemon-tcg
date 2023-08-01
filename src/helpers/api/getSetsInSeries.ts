@@ -1,8 +1,9 @@
 import { config } from "@/utils/config";
 import { PagedResponse } from "@/types/PagedResponse";
 import { PokemonSet } from "@/types/PokemonSet";
+import React from "react";
 
-async function getSetsInSeries(seriesName: string) {
+const getSetsInSeries = React.cache(async (seriesName: string) => {
   const res = await fetch(
     `https://api.pokemontcg.io/v2/sets?q=series:${decodeURIComponent(
       seriesName
@@ -20,6 +21,6 @@ async function getSetsInSeries(seriesName: string) {
 
   const data = await res.json();
   return data as PagedResponse<PokemonSet[]>;
-}
+});
 
 export default getSetsInSeries;

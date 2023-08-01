@@ -3,7 +3,7 @@ import { PagedResponse } from "@/types/PagedResponse";
 import { PokemonCard } from "@/types/PokemonCard";
 import React from "react";
 
-const getCardsInSet = React.cache((id: string) => async () => {
+const getCardsInSet = React.cache(async (id: string) => {
   const res = await fetch(`https://api.pokemontcg.io/v2/cards?q=set.id:${id}`, {
     headers: {
       "X-Api-Key": config.tcgApiKey,

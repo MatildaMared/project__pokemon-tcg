@@ -23,7 +23,7 @@ export default function SetList({ sets }: SetListProps) {
                 fill={true}
                 src={set.images.logo}
                 alt={set.name + " logo"}
-                style={{ objectFit: "contain" }}
+                className={"object-contain"}
                 sizes="100%"
               />
             </div>

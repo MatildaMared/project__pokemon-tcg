@@ -1,14 +1,16 @@
 import getSetsInSeries from "@/helpers/api/getSetsInSeries";
 import SetList from "@/components/SetList";
-import { series } from "@/types/Series";
+import getSeriesName from "@/utils/getSeriesName";
 
-export default async function SeriesPage({
-  params,
-}: {
-  params: { series: string };
-}) {
-  const seriesSlug = decodeURIComponent(params.series);
-  const seriesName = series.find((s) => s.slug === seriesSlug)?.name || "";
+interface SeriesPageProps {
+  params: {
+    series: string;
+  };
+}
+
+export default async function SeriesPage({ params }: SeriesPageProps) {
+  const seriesSlug = params.series;
+  const seriesName = getSeriesName(seriesSlug);
   const { data } = await getSetsInSeries(seriesName);
   return (
     <main>

@@ -20,7 +20,7 @@ export default function MenuButton({ onToggle, open }: MenuButtonProps) {
   return (
     <button
       onClick={onToggle}
-      className="w-12 h-12 flex items-center justify-center rounded-full bg-gray-100 hover:bg-gray-200 stroke-gray-400 hover:stroke-gray-600 ease-in duration-200"
+      className="absolute mt-2 ml-4 w-12 h-12 flex items-center justify-center rounded-full bg-gray-100 stroke-gray-400 hover:stroke-gray-600 ease-in duration-200"
     >
       <svg width="22" height="18" viewBox="0 0 22 18">
         <Path

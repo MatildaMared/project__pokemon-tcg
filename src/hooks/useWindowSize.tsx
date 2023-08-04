@@ -6,7 +6,7 @@ type WindowSize = {
   height: number | undefined;
 };
 
-function useWindowSize() {
+export default function useWindowSize() {
   const [windowSize, setWindowSize] = useState<WindowSize>({
     width: undefined,
     height: undefined,

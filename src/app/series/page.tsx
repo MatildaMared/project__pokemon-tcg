@@ -8,8 +8,8 @@ export default async function SetsPage() {
       <Link href={"/"}>Home</Link>
       <ul>
         {series.map((series) => (
-          <Link key={series} href={`/series/${series}`}>
-            {series}
+          <Link key={series.slug} href={`/series/${series.slug}`}>
+            {series.name}
           </Link>
         ))}
       </ul>

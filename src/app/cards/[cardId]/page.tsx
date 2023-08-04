@@ -10,7 +10,6 @@ interface CardPageProps {
 export default async function CardPage({ params }: CardPageProps) {
   const cardId = params.cardId;
   const card = await getCardById(cardId);
-  console.log(card);
   return (
     <main className="h-full">
       <h1>Card details page</h1>

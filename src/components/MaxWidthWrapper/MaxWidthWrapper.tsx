@@ -5,5 +5,7 @@ interface MaxWidthWrapperProps {
 }
 
 export default function MaxWidthWrapper({ children }: MaxWidthWrapperProps) {
-  return <div className="w-full max-w-screen-xl p-4 m-auto">{children}</div>;
+  return (
+    <div className="w-full h-full max-w-screen-xl p-4 m-auto">{children}</div>
+  );
 }

@@ -1,8 +1,10 @@
 import getCardsInSet from "@/helpers/api/getCardsInSet";
 import getSet from "@/helpers/api/getSet";
-import Link from "next/link";
 import CardList from "@/components/CardList";
 import getSeriesSlug from "@/utils/getSeriesSlug";
+import React from "react";
+import BreadCrumbs from "@/components/BreadCrumbs";
+import Crumb from "@/components/BreadCrumbs/Crumb";
 
 interface SetPageProps {
   params: {
@@ -19,7 +21,12 @@ export default async function SetPage({ params }: SetPageProps) {
   return (
     <main>
       <h1 className="text-2xl">{set.name}</h1>
-      <Link href={`/series/${seriesSlug}`}>Go Back</Link>
+      <BreadCrumbs>
+        <Crumb href="/series">Series</Crumb>
+        <Crumb href={`/series/${seriesSlug}`} isCurrentPage>
+          {set.series}
+        </Crumb>
+      </BreadCrumbs>
       <CardList cards={cards} />
     </main>
   );

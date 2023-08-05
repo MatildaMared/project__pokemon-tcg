@@ -12,7 +12,7 @@ export default function MobileMenu() {
 
   const variants = {
     open: (height = 1000) => ({
-      clipPath: `circle(${height * 2 + 200}px at 40px 40px)`,
+      clipPath: `circle(${height * 2 + 200}px at 40px 32px)`,
       transition: {
         type: "spring",
         stiffness: 20,
@@ -20,7 +20,7 @@ export default function MobileMenu() {
       },
     }),
     closed: {
-      clipPath: "circle(30px at 40px 40px)",
+      clipPath: "circle(24px at 40px 32px)",
       transition: {
         delay: 0.5,
         type: "spring",
@@ -32,7 +32,7 @@ export default function MobileMenu() {
 
   return (
     <motion.nav
-      className="absolute top-0 left-0 bottom-0 w-64"
+      className="fixed top-0 left-0 bottom-0 w-72 z-10"
       variants={variants}
       initial={false}
       animate={isOpen ? "open" : "closed"}
@@ -40,14 +40,16 @@ export default function MobileMenu() {
       ref={containerRef}
     >
       <motion.div
-        className="w-64 border-2 border-blue-600 bg-gray-100 absolute top-0 left-0 bottom-0"
+        className="w-72 bg-gray-100 absolute top-0 left-0 bottom-0"
         variants={variants}
       />
       <MenuButton
         onToggle={() => setIsOpen((isOpen) => !isOpen)}
         open={isOpen}
       />
-      <Menu />
+      <div className="absolute top-16 left-0 right-0">
+        <Menu />
+      </div>
     </motion.nav>
   );
 }

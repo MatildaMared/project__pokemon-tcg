@@ -32,7 +32,7 @@ export default function MobileMenu() {
 
   return (
     <motion.nav
-      className="fixed top-0 left-0 bottom-0 w-72 z-10"
+      className="fixed top-0 left-0 bottom-0 w-72 z-10 lg:hidden"
       variants={variants}
       initial={false}
       animate={isOpen ? "open" : "closed"}

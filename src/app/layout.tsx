@@ -4,6 +4,7 @@ import React from "react";
 import "./globals.css";
 import MaxWidthWrapper from "@/components/MaxWidthWrapper";
 import Header from "@/components/Header";
+import Menu from "@/components/Menu";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -21,7 +22,12 @@ export default function RootLayout({ children }: RootLayoutProps) {
     <html lang="en" suppressHydrationWarning={true}>
       <body className={inter.className}>
         <Header />
-        <MaxWidthWrapper>{children}</MaxWidthWrapper>
+        <div className="grid lg:grid-cols-[240px,_1fr] h-full">
+          <div className="hidden lg:block bg-gray-100">
+            <Menu />
+          </div>
+          <MaxWidthWrapper>{children}</MaxWidthWrapper>
+        </div>
       </body>
     </html>
   );

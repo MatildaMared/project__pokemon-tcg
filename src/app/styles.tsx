@@ -2,6 +2,6 @@
 import styled from "styled-components";
 
 export const Container = styled.div`
-  background-color: var(--color-background);
+  background-color: ${({ theme }) => theme.colors.background};
   height: 100%;
 `;

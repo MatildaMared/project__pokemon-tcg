@@ -1,16 +1,22 @@
 "use client";
 
 import { useState } from "react";
-import MobileMenu from "@/components/Menu/MobileMenu";
+import styled from "styled-components";
 
 export default function Header() {
   const [menuOpen, setMenuOpen] = useState(false);
   return (
-    <header className="w-full h-16 bg-gray-100">
-      <div className="flex flex-row-reverse lg:flex-row justify-between items-center w-full h-full p-4 m-auto">
-        <MobileMenu />
+    <Container>
+      <HeaderContent>
         <h1>Pokemon TCG</h1>
-      </div>
-    </header>
+      </HeaderContent>
+    </Container>
   );
 }
+
+const Container = styled.div`
+  border: 1px solid hotpink;
+  padding-block: var(--space-l);
+`;
+
+const HeaderContent = styled.header``;

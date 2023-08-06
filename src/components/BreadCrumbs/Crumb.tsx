@@ -10,7 +10,7 @@ interface CrumbProps {
 export default function Crumb({ href, isCurrentPage, children }: CrumbProps) {
   return (
     <li
-      className={`[&:not(:first-child)]:before:content-['/'] [&:not(:first-child)]:before:mr-1 [&:not(:first-child)]:before:font-normal text-gray-400 ml-1 hover:underline [&:not(:first-child)]:before:hover:no-underline ${
+      className={`[&:not(:first-child)]:before:content-['/'] [&:not(:first-child)]:before:mr-1 [&:not(:first-child)]:before:font-normal text-gray-400 [&:not(:first-child)]:ml-1 hover:underline [&:not(:first-child)]:before:inline-block ease-in duration-200 ${
         isCurrentPage ? "font-bold" : ""
       }`}
     >

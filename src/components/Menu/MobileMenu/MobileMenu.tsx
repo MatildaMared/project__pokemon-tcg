@@ -32,7 +32,7 @@ export default function MobileMenu() {
 
   return (
     <motion.nav
-      className="fixed top-0 left-0 bottom-0 w-72 z-10 lg:hidden"
+      className="fixed top-0 left-0 bottom-0 w-full sm:w-72 z-10 lg:hidden"
       variants={variants}
       initial={false}
       animate={isOpen ? "open" : "closed"}
@@ -40,7 +40,7 @@ export default function MobileMenu() {
       ref={containerRef}
     >
       <motion.div
-        className="w-72 bg-gray-100 absolute top-0 left-0 bottom-0"
+        className="w-full sm:w-72 bg-gray-200 absolute top-0 left-0 bottom-0"
         variants={variants}
       />
       <MenuButton

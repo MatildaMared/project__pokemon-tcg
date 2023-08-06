@@ -10,8 +10,8 @@ interface CrumbProps {
 export default function Crumb({ href, isCurrentPage, children }: CrumbProps) {
   return (
     <li
-      className={`[&:not(:first-child)]:before:content-['/'] text-gray-400 ml-1 ${
-        isCurrentPage ? "border-b-2" : ""
+      className={`[&:not(:first-child)]:before:content-['/'] [&:not(:first-child)]:before:mr-1 [&:not(:first-child)]:before:font-normal text-gray-400 ml-1 hover:underline [&:not(:first-child)]:before:hover:no-underline ${
+        isCurrentPage ? "font-bold" : ""
       }`}
     >
       <Link href={href} aria-current={isCurrentPage ? "page" : undefined}>

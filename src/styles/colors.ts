@@ -1,3 +1,4 @@
 export const colors = {
-  background: "hotpink",
+  background: "#e8e8e8",
+  backgroundLighter: "#fafafa",
 };

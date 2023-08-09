@@ -36,7 +36,7 @@ export default function Header() {
               width={48}
               height={48}
             />
-            <Link href="/cards">Pokemon</Link>
+            <Link href="/pokemon">Pokemon</Link>
           </Item>
         </List>
       </nav>

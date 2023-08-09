@@ -3,7 +3,7 @@ import { Inter, Nunito } from "next/font/google";
 import React from "react";
 import Header from "@/components/Header";
 import StyledComponentsRegistry from "@/registry/StyledComponentsRegistry";
-import { Container } from "./styles";
+import { Container, MainContent } from "./styles";
 import Theme from "@/components/Theme";
 
 const inter = Inter({ subsets: ["latin"] });
@@ -26,7 +26,7 @@ export default function RootLayout({ children }: RootLayoutProps) {
           <Theme>
             <Container>
               <Header />
-              {children}
+              <MainContent>{children}</MainContent>
             </Container>
           </Theme>
         </StyledComponentsRegistry>

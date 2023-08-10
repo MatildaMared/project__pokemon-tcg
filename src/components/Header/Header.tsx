@@ -1,51 +1,43 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useId, useState } from "react";
 import styled from "styled-components";
 import Link from "next/link";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
+import { LINKS } from "@/links/links";
+import { motion } from "framer-motion";
 
 export default function Header() {
   const pathName = usePathname();
+  const [hoveredLink, setHoveredLink] = useState<string | null>(null);
+  const id = useId();
+
   console.log(pathName);
   return (
     <Container>
-      <nav>
+      <nav onMouseLeave={() => setHoveredLink(null)}>
         <List>
-          <Item>
-            <NavLink href="/" className={pathName === "/" ? "current" : ""}>
-              <Image
-                src="/icons/pokeball-100.png"
-                alt="Pokemon Logo"
-                width={48}
-                height={48}
-              />
-              Home
-            </NavLink>
-          </Item>
-          <Item>
-            <NavLink href="/series">
-              <Image
-                src="/icons/bulbasaur-100.png"
-                alt="Pokemon Logo"
-                width={48}
-                height={48}
-              />
-              Cards
-            </NavLink>
-          </Item>{" "}
-          <Item>
-            <NavLink href="/pokemon">
-              <Image
-                src="/icons/charmander-100.png"
-                alt="Pokemon Logo"
-                width={48}
-                height={48}
-              />
-              Pokemon
-            </NavLink>
-          </Item>
+          {LINKS.map((link) => (
+            <Item key={link.path}>
+              <NavLink
+                onMouseEnter={() => setHoveredLink(link.path)}
+                href={link.path}
+                className={pathName === link.path ? "current" : ""}
+              >
+                <Image src={link.icon} alt={link.name} width={48} height={48} />
+                {link.name}
+              </NavLink>
+              {hoveredLink === link.path && (
+                <Backdrop
+                  layoutId={id}
+                  initial={{
+                    borderRadius: 8,
+                  }}
+                />
+              )}
+            </Item>
+          ))}
         </List>
       </nav>
     </Container>
@@ -72,23 +64,35 @@ const List = styled.ul`
   gap: ${({ theme }) => theme.spacing.s};
 `;
 
-const Item = styled.li``;
+const Item = styled.li`
+  position: relative;
+  margin-block: ${({ theme }) => theme.spacing.s};
+  border: 1px solid hotpink;
+`;
 
 const NavLink = styled(Link)`
+  position: relative;
   padding: 0;
   padding-right: ${({ theme }) => theme.spacing.m};
   padding-left: ${({ theme }) => theme.spacing.xs};
-  gap: ${({ theme }) => theme.spacing.s};
-  padding-block: ${({ theme }) => theme.spacing.xs};
   border-bottom: 4px solid transparent;
   text-decoration: none;
   font-weight: 700;
   display: flex;
   align-items: center;
   transition: border-bottom 0.2s ease-in-out;
+  z-index: 2;
 
   &:hover,
   &.current {
     border-bottom: 4px solid hotpink;
   }
+`;
+
+const Backdrop = styled(motion.div)`
+  position: absolute;
+  inset: 0;
+  background: ${({ theme }) => theme.colors.background};
+  border-radius: 16px;
+  z-index: 1;
 `;

@@ -3,6 +3,7 @@ import { PokemonCard } from "@/types/PokemonCard";
 import { motion } from "framer-motion";
 import Link from "next/link";
 import Image from "next/image";
+import { styled } from "styled-components";
 
 interface CardListProps {
   cards: PokemonCard[];
@@ -10,30 +11,40 @@ interface CardListProps {
 
 export default function CardList({ cards }: CardListProps) {
   return (
-    <div
-      className={
-        "grid grid-cols-[repeat(auto-fill,minmax(175px,1fr))] gap-4 place-items-center"
-      }
-    >
+    <Container>
       {cards.map((card) => (
-        <motion.div
+        <Card
           key={card.id}
-          className={"w-full"}
           whileHover={{ scale: 1.05 }}
           whileTap={{ scale: 1.02 }}
         >
           <Link href={`/cards/${card.id}`}>
-            <Image
+            <StyledImage
               src={card.images.small}
               alt={card.name}
               width={0}
               height={0}
               sizes="100vw"
-              style={{ width: "100%", height: "auto" }}
             />
           </Link>
-        </motion.div>
+        </Card>
       ))}
-    </div>
+    </Container>
   );
 }
+
+const Container = styled.div`
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(175px, 1fr));
+  gap: ${({ theme }) => theme.spacing.m};
+  place-items: center;
+`;
+
+const Card = styled(motion.div)`
+  width: 100%;
+`;
+
+const StyledImage = styled(Image)`
+  width: 100%;
+  height: auto;
+`;

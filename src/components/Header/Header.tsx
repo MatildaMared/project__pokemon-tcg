@@ -67,7 +67,6 @@ const List = styled.ul`
 const Item = styled.li`
   position: relative;
   margin-block: ${({ theme }) => theme.spacing.s};
-  border: 1px solid hotpink;
 `;
 
 const NavLink = styled(Link)`
@@ -83,9 +82,24 @@ const NavLink = styled(Link)`
   transition: border-bottom 0.2s ease-in-out;
   z-index: 2;
 
-  &:hover,
+  &:after {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 2px;
+    background-color: transparent;
+    bottom: -8px;
+    left: 0;
+    z-index: 1;
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out;
+  }
+
   &.current {
-    border-bottom: 4px solid hotpink;
+    &:after {
+      background-color: hotpink;
+      opacity: 1;
+    }
   }
 `;
 

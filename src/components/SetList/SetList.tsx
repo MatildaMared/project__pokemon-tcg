@@ -2,6 +2,7 @@
 import { PokemonSet } from "@/types/PokemonSet";
 import Image from "next/image";
 import Link from "next/link";
+import { styled } from "styled-components";
 
 interface SetListProps {
   sets: PokemonSet[];
@@ -9,26 +10,53 @@ interface SetListProps {
 
 export default function SetList({ sets }: SetListProps) {
   return (
-    <ul className="grid grid-cols-[repeat(auto-fill,minmax(175px,1fr))] gap-4">
+    <List>
       {sets.map((set) => (
-        <li key={set.id}>
-          <Link
-            href={`/sets/${set.id}`}
-            className="flex flex-col items-center justify-center h-full bg-gray-50 p-4 rounded-2xl text-center gap-2 hover:bg-gray-100 transition-colors"
-          >
-            <h2 className="text-xs uppercase">{set.name}</h2>
-            <div className="w-40 h-20 relative">
-              <Image
-                fill={true}
-                src={set.images.logo}
-                alt={set.name + " logo"}
-                className={"object-contain"}
-                sizes="100%"
-              />
-            </div>
-          </Link>
-        </li>
+        <Set key={set.id}>
+          <StyledLink href={`/sets/${set.id}`}>
+            <SetTitle>{set.name}</SetTitle>
+            <StyledImage
+              src={set.images.logo}
+              alt={set.name}
+              width={0}
+              height={0}
+              sizes="100vw"
+            />
+          </StyledLink>
+        </Set>
       ))}
-    </ul>
+    </List>
   );
 }
+
+const List = styled.ul`
+  display: flex;
+  flex-wrap: wrap;
+  gap: ${({ theme }) => theme.spacing.m};
+  list-style: none;
+  padding: 0;
+`;
+
+const Set = styled.li`
+  height: fit-content;
+  width: fit-content;
+  border: 1px solid hotpink;
+`;
+
+const StyledLink = styled(Link)`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  height: fit-content;
+`;
+
+const StyledImage = styled(Image)`
+  width: 100%;
+  max-width: 250px;
+  height: auto;
+  max-height: 100px;
+  object-fit: contain;
+`;
+
+const SetTitle = styled.h2``;

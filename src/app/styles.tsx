@@ -19,5 +19,5 @@ export const MainContent = styled.main`
   padding: ${({ theme }) => theme.spacing.l};
   border-radius: ${({ theme }) => theme.borderRadius.m};
   box-shadow: ${({ theme }) => theme.shadows.l};
-  margin-bottom: ${({ theme }) => theme.spacing.l};
+  margin-bottom: ${({ theme }) => theme.spacing.l};ƒ
 `;

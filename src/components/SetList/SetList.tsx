@@ -49,6 +49,8 @@ const StyledLink = styled(Link)`
   align-items: center;
   justify-content: flex-start;
   height: fit-content;
+  text-decoration: none;
+  padding: ${({ theme }) => theme.spacing.m};
 `;
 
 const StyledImage = styled(Image)`
@@ -59,4 +61,8 @@ const StyledImage = styled(Image)`
   object-fit: contain;
 `;
 
-const SetTitle = styled.h2``;
+const SetTitle = styled.h2`
+  font-size: 0.875rem;
+  font-weight: 700;
+  text-transform: uppercase;
+`;

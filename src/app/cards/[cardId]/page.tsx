@@ -4,6 +4,7 @@ import BreadCrumbs from "@/components/BreadCrumbs";
 import Crumb from "@/components/BreadCrumbs/Crumb";
 import React from "react";
 import getSeriesSlug from "@/utils/getSeriesSlug";
+import CardDetails from "@/components/CardDetails/CardDetails";
 
 interface CardPageProps {
   params: {
@@ -26,24 +27,7 @@ export default async function CardPage({ params }: CardPageProps) {
           {card.name}
         </Crumb>
       </BreadCrumbs>
-      <div className="w-auto h-3/6 relative">
-        <Image
-          fill={true}
-          src={card.images.large}
-          alt={card.name}
-          className={"object-contain"}
-          sizes="100%"
-        />
-      </div>
-      <h2>{card.name}</h2>
-      <p>Set: {card.set.name}</p>
-      <p>hp: {card.hp}</p>
-      <h2>Types</h2>
-      <ul>
-        {card.types.map((type) => (
-          <li key={type}>{type}</li>
-        ))}
-      </ul>
+      <CardDetails card={card} />
     </main>
   );
 }

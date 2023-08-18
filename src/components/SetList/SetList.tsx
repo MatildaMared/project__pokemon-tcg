@@ -40,7 +40,6 @@ const List = styled.ul`
 const Set = styled.li`
   height: fit-content;
   width: fit-content;
-  border: 1px solid hotpink;
 `;
 
 const StyledLink = styled(Link)`

@@ -47,7 +47,7 @@ export default function Header() {
 const Container = styled.header`
   width: 100%;
   max-width: ${({ theme }) => theme.breakpoints.xl};
-  background-color: ${({ theme }) => theme.colors.backgroundLighter};
+  background-color: ${({ theme }) => theme.colors.background.lighter};
   padding-inline: ${({ theme }) => theme.spacing.l};
   display: flex;
   align-items: center;

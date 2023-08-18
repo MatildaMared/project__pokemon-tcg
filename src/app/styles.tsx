@@ -4,7 +4,7 @@ import styled from "styled-components";
 export const Container = styled.div`
   padding-top: ${({ theme }) => theme.spacing.l};
   padding-inline: ${({ theme }) => theme.spacing.s};
-  background-color: ${({ theme }) => theme.colors.background};
+  background-color: ${({ theme }) => theme.colors.background.primary};
   min-height: 100%;
   display: flex;
   flex-direction: column;
@@ -13,7 +13,7 @@ export const Container = styled.div`
 `;
 
 export const MainContent = styled.main`
-  background: ${({ theme }) => theme.colors.backgroundLighter};
+  background: ${({ theme }) => theme.colors.background.lighter};
   width: 100%;
   max-width: ${({ theme }) => theme.breakpoints.xl};
   padding: ${({ theme }) => theme.spacing.l};

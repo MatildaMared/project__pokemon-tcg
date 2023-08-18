@@ -64,4 +64,6 @@ const SetTitle = styled.h2`
   font-size: 0.875rem;
   font-weight: 700;
   text-transform: uppercase;
+  margin-bottom: ${({ theme }) => theme.spacing.xs};
+  color: ${({ theme }) => theme.colors.text.primary};
 `;

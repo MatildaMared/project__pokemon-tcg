@@ -37,11 +37,9 @@ export default function CardDetails({ card }: CardDetailsProps) {
 }
 
 const Container = styled.div`
-  border: 1px solid hotpink;
 `;
 
 const ImageWrapper = styled.div`
-  border: 1px solid blue;
   position: relative;
   width: 100%;
   max-width: 275px;
